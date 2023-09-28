@@ -11,15 +11,18 @@ import { Country } from '../../interfaces/country';
 export class ByCapitalPageComponent {
 
   public countries: Country[] = [];
+  public isLoading: boolean = false;
   constructor( private countriesService: CountriesService){}
 
   searchByCapital(term: string):void{
     // console.log('Desde ByCapitalPage');
     // console.log({term});
 
+    this.isLoading = true;
     // Estamos llamando el metodo del servicio
     this.countriesService.searchCapital(term).subscribe( countries => {
       this.countries = countries;
+      this.isLoading = false;
     })
     console.log({term});
   }
