@@ -21,6 +21,7 @@ export class CountryPageComponent implements OnInit{
     private router: Router,
     private CountriesService: CountriesService
   ){}
+
   ngOnInit(): void {
     this.activatedRoute.params.pipe(
       switchMap( ({id}) => this.CountriesService.searchContryByAlphaCode(id)),

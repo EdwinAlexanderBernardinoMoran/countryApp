@@ -2,13 +2,15 @@
 <hr>
 
 <div class="row">
-  <div class="col">
+  <div class="col text-center">
     <!-- SearchBox -->
-    <shared-search-box
-       (onValue)="searchByRigion($event)"
-      placeholder="Buscar por region"></shared-search-box>
+    <button *ngFor="let region of regions" class="btn mx-2 btn-outline-primary" [ngClass]="{ 'btn-outline-primary': selectedRegion == region }" (click)="searchByRigion(region)">
+      {{ region }}
+    </button>
   </div>
 </div>
+
+<hr>
 
 <div class="row">
   <div class="col pt-4">
